@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.url">jdbc:sqlite:database.sqlite</property>
+        <!-- <property name="connection.username">sa</property>
+        <property name="connection.password"></property> -->
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+        <property name="jdbc.batch_size">1000</property>
+        <property name="order_inserts">true</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">nl.hz.hibernate.dialects.SQLiteDialect</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">create-drop</property>
+
+        <!-- Names the annotated entity class -->
+        <mapping class="nl.hz.bict.sor21314.team1.entities.Question"></mapping>
+        <mapping class="nl.hz.bict.sor21314.team1.entities.Answer"></mapping>
+        <mapping class="nl.hz.bict.sor21314.team1.entities.Exams"></mapping>
+        <mapping class="nl.hz.bict.sor21314.team1.entities.RandomExam"></mapping>
+        <mapping class="nl.hz.bict.sor21314.team1.entities.Category"></mapping>
+        <mapping class="nl.hz.bict.sor21314.team1.entities.User"></mapping>
+    
+    </session-factory>
+
+</hibernate-configuration>
